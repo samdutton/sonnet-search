@@ -1,0 +1,9 @@
+play: title
+    
+    act: title
+        scene: title
+        stagedir
+        speech: speaker
+            line
+            stagedir
+            
