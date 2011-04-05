@@ -1,14 +1,14 @@
 {
-  "name": "Google Mail",
-  "description": "Read your gmail",
-  "version": "1",
+  "name": "Shakespeare Sonnet Search",
+  "description": "Instant search for William Shakespeare's sonnets",
+  "version": "1.0",
   "app": {
     "urls": [
       "*://mail.google.com/mail/",
       "*://www.google.com/mail/"
     ],
     "launch": {
-      "web_url": "http://mail.google.com/mail/"
+      "web_url": "http://www.samdutton.com/shearch/"
     }
   },
   "icons": {
