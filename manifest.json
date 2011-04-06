@@ -4,15 +4,19 @@
   "version": "1.0",
   "app": {
     "urls": [
-      "*://mail.google.com/mail/",
-      "*://www.google.com/mail/"
+      "*://samdutton.com/shearch/",
+      "*://www.samdutton.com/shearch/"
     ],
     "launch": {
       "web_url": "http://www.samdutton.com/shearch/"
     }
   },
   "icons": {
-    "128": "icon_128.png"
+    "16": "images/icon16.png",
+    "22": "images/icon22.png",
+    "32": "images/icon32.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png",
   },
   "permissions": [
     "unlimitedStorage",
