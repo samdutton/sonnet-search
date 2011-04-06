@@ -9,80 +9,71 @@ text-decoration: underline;
 }
 
 body {
-background: #666;
-font-family: Arial, sans-serif;
+background-color: black;
+background-image:url('../images/background.jpg');
+font-family: 'Droid Sans', sans-serif;
+overflow: scroll;
 padding: 50px;
 }
 
 div#container {
-background: #000;
+background: #444;
 margin: 0 auto 0 auto;
-padding: 20px 30px 30px 30px;
-width: 440px;
+opacity: 0.6;
+padding: 20px 30px 10px 30px;
+width: 425px;
 }
 
-* html div#container {
-width: 540px;
+div#info {
+height: 115px;
+margin: 0 0 20px 0;
 }
 
 h1 {
 border-bottom: 1px solid #aaa;
-color: white;
-font-family: Arial, sans-serif;
+color: #a44;
+font-family: 'Droid Sans', sans-serif;
+height: 50px;
 margin: 0 0 30px 0;
 padding: 0 0 10px 0;
 }
 
-h2 {
-color: white;
-font-family: Arial, sans-serif;
-margin: 30px 0 0 0;
-}
-
-img {
-border: none;
-}
-
-p {
-color: #eee;
+span.inputLabel {
+color: #ccc;
+float: left;
 font-size: 14px;
-line-height: 1.5em;
+font-family: 'Droid Sans', sans-serif;
+font-weight: bold;
+line-height: 1em;
+margin: 0 10px 0 0;
 }
 
-p.borderBottom {
-border-bottom: 1px dotted #666;
-padding: 0 0 30px 0;
-}
-
-ul {
-color: #eee;
+input#query {
+color: #e00;
+float: right;
+font-family: 'Droid Sans', sans-serif;
 font-size: 14px;
-line-height: 1.5em;
-margin: 20px;
-padding: 0;
-}
-
-li {
-list-style: square;
-margin: 0 0 5px 0;
+position: relative;
+top: -5px;
+width: 242px;
 }
 
 
 
 div#resultsContainer {
-margin: 20px 0 20px 0;
+margin: 0 0 20px 0;
 }
 
 div.poem {
 cursor: pointer;
-font-family: Arial;
+font-family: 'Droid Sans';
 margin: 0 0 1em 0;
 }
 
 div.poem div.poemTitle {
-border-bottom: 1px dotted #444;
-color: white;
-font-size: 12px;
+border-bottom: 1px dotted #666;
+color: #666;
+font-size: 14px;
 font-weight: bold;
 height: 1.5em;
 margin: 0 0 5px 0;
@@ -100,21 +91,20 @@ line-height: 1.5em;
 }
 
 div.lineText {
-color: #eee;
+color: white;
 float: left;
 font-size: 12px;
 }
 
 div.lineText em {
 font-style: normal;
-background: #666;
+background: #744;
 padding: 0 1px 0 1px;
 }
 
 div.lineNumber {
-color: #ccc;
+color: #666;
 float: right;
 font-size: 10px;
 font-style: italic;
-width: 30px;
 }

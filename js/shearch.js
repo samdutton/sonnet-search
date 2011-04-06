@@ -20,7 +20,7 @@ function insertPoems() {
                     [poemIndex.toString(), poem.title, (lineIndex + 1).toString(), lineText]);
             });
         });
-    }, transactionErrorHandler, showCount);
+    }, transactionErrorHandler, null);
 }
 
 function insertPoemsTest() {
@@ -84,6 +84,7 @@ function displayResults(transaction, results) {
 //    elapsedTimer();
     var resultsDiv = $("<div class='results' />"); //
 	var poemDiv, linesDiv;
+	displayResults.currentPoemIndex = null;
     for (var i = 0; i !== results.rows.length; ++i) {
         var line = results.rows.item(i);
 		// for each poem, create divs and add the poem title, then add a click handler to toggle display of the whole poem
@@ -97,26 +98,27 @@ function displayResults(transaction, results) {
 			addClickHandler(poemDiv, linesDiv, line.poemIndex, query);
 		}
 		// add line to div.lines
-        linesDiv.append("<div class='line'><div class='lineText'>" + 
+		linesDiv.append("<div class='line'><div class='lineText'>" + 
 			line.lineText.replace(new RegExp("(" + query + ")", "gi"), "<em>$1</em>") + 
-			"</div><div class='lineNumber'>" + line.lineNumber + "</div></div>");        
+			"</div><div class='lineNumber'>" + line.lineNumber + "</div></div>");       
     }
+//	$("body").css("background-image", "url('images/background.jpg')");
     $("#resultsContainer").html(resultsDiv);
 //    elapsedTimer();
 }
 
 var query;
 $(document).ready(function() {
-    $("#query").focus();
+//    $("#query").focus(); // done with input autofocus attribute
     $("#query").bind('input', function() {
         query = $(this).val();
         if (query.length < 3) {
 			$("#resultsContainer").empty();			
             return false;
         }
-        console.log(query);
+//        console.log(query);
         // could use caching of results for query
-        var statement = "SELECT poemIndex, poemTitle, lineNumber, lineText FROM poems WHERE lineText like '%" + query + "%'";
+        var statement = "SELECT poemIndex, poemTitle, lineNumber, lineText FROM poems WHERE lineText like '%" + escape(query) + "%'";
         doReadQuery(statement, displayResults);
     });
 });

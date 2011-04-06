@@ -20,7 +20,7 @@ function queryErrorHandler(transaction, error) {
 }
 
 function showResults(transaction, results) {
-    console.log(results);
+//    console.log(results);
 	if (results.rows && results.rows.length > 0) {
 		var i, message = "", prop;
 		for (i = 0; i !== results.rows.length; ++i) {
