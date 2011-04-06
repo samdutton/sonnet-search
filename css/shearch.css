@@ -1,0 +1,120 @@
+a {
+color: #6699ff;
+text-decoration: none;
+}
+
+a:hover {
+color: #99aaff;
+text-decoration: underline;
+}
+
+body {
+background: #666;
+font-family: Arial, sans-serif;
+padding: 50px;
+}
+
+div#container {
+background: #000;
+margin: 0 auto 0 auto;
+padding: 20px 30px 30px 30px;
+width: 440px;
+}
+
+* html div#container {
+width: 540px;
+}
+
+h1 {
+border-bottom: 1px solid #aaa;
+color: white;
+font-family: Arial, sans-serif;
+margin: 0 0 30px 0;
+padding: 0 0 10px 0;
+}
+
+h2 {
+color: white;
+font-family: Arial, sans-serif;
+margin: 30px 0 0 0;
+}
+
+img {
+border: none;
+}
+
+p {
+color: #eee;
+font-size: 14px;
+line-height: 1.5em;
+}
+
+p.borderBottom {
+border-bottom: 1px dotted #666;
+padding: 0 0 30px 0;
+}
+
+ul {
+color: #eee;
+font-size: 14px;
+line-height: 1.5em;
+margin: 20px;
+padding: 0;
+}
+
+li {
+list-style: square;
+margin: 0 0 5px 0;
+}
+
+
+
+div#resultsContainer {
+margin: 20px 0 20px 0;
+}
+
+div.poem {
+cursor: pointer;
+font-family: Arial;
+margin: 0 0 1em 0;
+}
+
+div.poem div.poemTitle {
+border-bottom: 1px dotted #444;
+color: white;
+font-size: 12px;
+font-weight: bold;
+height: 1.5em;
+margin: 0 0 5px 0;
+padding: 0 0 0 0;
+}
+
+div.line {
+font-size: 12px;
+height: 1.5em;
+}
+
+div.poemLines {
+font-size: 12px;
+line-height: 1.5em;
+}
+
+div.lineText {
+color: #eee;
+float: left;
+font-size: 12px;
+}
+
+div.lineText em {
+font-style: normal;
+background: #666;
+padding: 0 1px 0 1px;
+}
+
+div.lineNumber {
+color: #ccc;
+float: right;
+font-size: 10px;
+font-style: italic;
+width: 30px;
+}
