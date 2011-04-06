@@ -82,20 +82,24 @@ function addClickHandler(poemDiv, linesDiv, poemIndex, query) {
 
 function displayResults(transaction, results) {
 //    elapsedTimer();
+	if (!query) { // !!!hack: to cope with inputting long query then quickly deleting
+		return;
+	}
     var resultsDiv = $("<div class='results' />"); //
-	var poemDiv, linesDiv;
-	displayResults.currentPoemIndex = null;
+	var currentPoemIndex, poemDiv, linesDiv;
     for (var i = 0; i !== results.rows.length; ++i) {
         var line = results.rows.item(i);
-		// for each poem, create divs and add the poem title, then add a click handler to toggle display of the whole poem
-		if (!displayResults.currentPoemIndex || displayResults.currentPoemIndex != line.poemIndex) {
-			displayResults.currentPoemIndex = line.poemIndex;
+		// for each new poem (i.e. new currentPoemIndex)
+		// create divs and add the poem title, 
+		// then add a click handler to toggle display of the whole poem
+		if (!currentPoemIndex || currentPoemIndex != line.poemIndex) {
+			currentPoemIndex = line.poemIndex;
 			poemDiv = $("<div class='poem' />");
 			poemDiv.append("<div class='poemTitle'>" + line.poemTitle + "</div>");			
 			resultsDiv.append(poemDiv);
 			linesDiv = $("<div class='lines' />").attr("poemIndex", line.poemIndex); // attr used to get html in click handler
 			poemDiv.append(linesDiv);
-			addClickHandler(poemDiv, linesDiv, line.poemIndex, query);
+			addClickHandler(poemDiv, linesDiv, line.poemIndex, query); 
 		}
 		// add line to div.lines
 		linesDiv.append("<div class='line'><div class='lineText'>" + 
@@ -116,9 +120,9 @@ $(document).ready(function() {
 			$("#resultsContainer").empty();			
             return false;
         }
-//        console.log(query);
-        // could use caching of results for query
-        var statement = "SELECT poemIndex, poemTitle, lineNumber, lineText FROM poems WHERE lineText like '%" + escape(query) + "%'";
+		// console.log(query);
+        // could use caching of results for query -- and does not cope with pathological input, such as double quotes
+        var statement = 'SELECT poemIndex, poemTitle, lineNumber, lineText FROM poems WHERE lineText like "%' + query + '%"'; 
         doReadQuery(statement, displayResults);
     });
 });
