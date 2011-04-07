@@ -1,27 +1,54 @@
-a {
-color: #6699ff;
-text-decoration: none;
+/*
+@font-face {
+  font-family: MyHelvetica;
+  src: local("Helvetica Neue Bold"),
+  local("HelveticaNeue-Bold"),
+  url(MgOpenModernaBold.ttf);
+  font-weight: bold;
+}
+*/
+
+@font-face {
+font-family: Delicious; 
+src: url('../fonts/Delicious-Roman.otf'); 
+} 
+
+@font-face { 
+font-family: Delicious; 
+src: url('../fonts/Delicious-Bold.otf'); 
+font-weight: bold;
 }
 
-a:hover {
-color: #99aaff;
-text-decoration: underline;
+@font-face { 
+font-family: Delicious-Heavy; 
+src: url('../fonts/Delicious-Heavy.otf'); 
 }
+
+@font-face { 
+font-family: Delicious; 
+src: url('../fonts/Delicious-Italic.otf'); 
+font-style: italic;
+}
+
+@font-face {
+font-family: Droid-Sans; 
+src: url('../fonts/DroidSans.ttf'); 
+} 
+
+
 
 body {
-background-color: black;
-background-image:url('../images/background.jpg');
-font-family: 'Droid Sans', sans-serif;
+background: black url('../images/background.jpg') no-repeat;
 overflow: scroll;
 padding: 50px;
 }
 
 div#container {
-background: #444;
+background: #333;
 margin: 0 auto 0 auto;
 opacity: 0.6;
 padding: 20px 30px 10px 30px;
-width: 425px;
+width: 355px;
 }
 
 div#info {
@@ -32,18 +59,19 @@ margin: 0 0 20px 0;
 h1 {
 border-bottom: 1px solid #aaa;
 color: #a44;
-font-family: 'Droid Sans', sans-serif;
+font-family: Delicious-Heavy, sans-serif;
+font-size: 24pt;
+font-weight: normal;
 height: 50px;
 margin: 0 0 30px 0;
 padding: 0 0 10px 0;
 }
 
 span.inputLabel {
-color: #ccc;
+color: #eee;
 float: left;
-font-size: 14px;
-font-family: 'Droid Sans', sans-serif;
-font-weight: bold;
+font-size: 12pt;
+font-family: Delicious, sans-serif;
 line-height: 1em;
 margin: 0 10px 0 0;
 }
@@ -51,11 +79,11 @@ margin: 0 10px 0 0;
 input#query {
 color: #e00;
 float: right;
-font-family: 'Droid Sans', sans-serif;
-font-size: 14px;
+font-family: Delicious, sans-serif;
+font-size: 12pt;
 position: relative;
 top: -5px;
-width: 242px;
+width: 182px;
 }
 
 
@@ -66,34 +94,31 @@ margin: 0 0 20px 0;
 
 div.poem {
 cursor: pointer;
-font-family: 'Droid Sans';
 margin: 0 0 1em 0;
 }
 
 div.poem div.poemTitle {
 border-bottom: 1px dotted #666;
 color: #666;
-font-size: 14px;
-font-weight: bold;
-height: 1.5em;
+font-family: Delicious, sans-serif;
+font-size: 12pt;
+height: 1.2em;
 margin: 0 0 5px 0;
 padding: 0 0 0 0;
 }
 
 div.line {
-font-size: 12px;
-height: 1.5em;
+height: 16px;
 }
 
 div.poemLines {
-font-size: 12px;
-line-height: 1.5em;
 }
 
 div.lineText {
 color: white;
 float: left;
-font-size: 12px;
+font-family: Delicious, sans-serif;
+font-size: 10pt;
 }
 
 div.lineText em {
@@ -103,7 +128,7 @@ padding: 0 1px 0 1px;
 }
 
 div.lineNumber {
-color: #666;
+color: #999;
 float: right;
 font-size: 10px;
 font-style: italic;
