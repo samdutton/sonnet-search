@@ -20,7 +20,7 @@ function insertPoems() {
                     [poemIndex.toString(), poem.title, (lineIndex + 1).toString(), lineText]);
             });
         });
-    }, transactionErrorHandler, showCount);
+    }, transactionErrorHandler, null);
 }
 
 function insertPoemsTest() {
@@ -36,3 +36,93 @@ function showCount() {
     var statement = "SELECT COUNT(*) FROM poems";
     doReadQuery(statement, showResults);
 }
+
+
+function elapsedTimer() {
+    if (elapsedTimer.isStarted) {
+        console.log("Elapsed: " + (Date.now() - elapsedTimer.startTime));
+        elapsedTimer.isStarted = false;
+    } else {
+        elapsedTimer.startTime = Date.now();
+        elapsedTimer.isStarted = true;
+    }
+}
+
+// toggle display of poem or query results
+function addClickHandler(poemDiv, linesDiv, poemIndex, query) {
+	var isUnexpanded = true;
+    var expandedHTML, unexpandedHTML; // to cache 'unexpanded' query results and 'expanded' whole poem
+    poemDiv.click(function() {
+		if (isUnexpanded) { // only query result lines are displayed: show whole poem
+			unexpandedHTML = $(this).html();
+			if (expandedHTML) { // if not the first time...
+				$(this).html(expandedHTML);
+			} else {
+				linesDiv.html("");
+				var poem = poems[poemIndex];
+				poem.lines.forEach(function(line, index, lines){
+					var lineDiv = $("<div class='line' />");
+					lineDiv.append("<div class='lineText'>" + line.replace(new RegExp("(" + query + ")", "gi"), "<em>$1</em>") + "</div>");
+					var lineNumber = index + 1;
+					if (lineNumber % 5 === 0) {
+						lineDiv.append("<div class='lineNumber'>" + lineNumber + "</div>");
+					}
+					linesDiv.append(lineDiv);
+				});		
+			}
+			
+			isUnexpanded = false;
+		} else { // whole poem is shown: display only query result lines
+			expandedHTML = $(this).html();
+			$(this).html(unexpandedHTML);
+			isUnexpanded = true;
+		}
+    });
+}
+
+function displayResults(transaction, results) {
+//    elapsedTimer();
+	if (!query) { // !!!hack: to cope with inputting long query then quickly deleting
+		return;
+	}
+    var resultsDiv = $("<div class='results' />"); //
+	var currentPoemIndex, poemDiv, linesDiv;
+    for (var i = 0; i !== results.rows.length; ++i) {
+        var line = results.rows.item(i);
+		// for each new poem (i.e. new currentPoemIndex)
+		// create divs and add the poem title, 
+		// then add a click handler to toggle display of the whole poem
+		if (!currentPoemIndex || currentPoemIndex != line.poemIndex) {
+			currentPoemIndex = line.poemIndex;
+			poemDiv = $("<div class='poem' />");
+			poemDiv.append("<div class='poemTitle'>" + line.poemTitle + "</div>");			
+			resultsDiv.append(poemDiv);
+			linesDiv = $("<div class='lines' />").attr("poemIndex", line.poemIndex); // attr used to get html in click handler
+			poemDiv.append(linesDiv);
+			addClickHandler(poemDiv, linesDiv, line.poemIndex, query); 
+		}
+		// add line to div.lines
+		linesDiv.append("<div class='line'><div class='lineText'>" + 
+			line.lineText.replace(new RegExp("(" + query + ")", "gi"), "<em>$1</em>") + 
+			"</div><div class='lineNumber'>" + line.lineNumber + "</div></div>");       
+    }
+//	$("body").css("background-image", "url('images/background.jpg')");
+    $("#resultsContainer").html(resultsDiv);
+//    elapsedTimer();
+}
+
+var query;
+$(document).ready(function() {
+//    $("#query").focus(); // done with input autofocus attribute
+    $("#query").bind('input', function() {
+        query = $(this).val();
+        if (query.length < 3) {
+			$("#resultsContainer").empty();			
+            return false;
+        }
+		// console.log(query);
+        // could use caching of results for query -- and does not cope with pathological input, such as double quotes
+        var statement = 'SELECT poemIndex, poemTitle, lineNumber, lineText FROM poems WHERE lineText like "%' + query + '%"'; 
+        doReadQuery(statement, displayResults);
+    });
+});

@@ -4,160 +4,36 @@
 
 <head>
 
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
-<title>shearch.me</title>
+	<title>Shakespeare Sonnet Search</title>
 
-<style type="text/css">
-</style>
+	<!-- JSON poems, required by shearch.js -->
+	<script src="json/sonnets.js" type="text/javascript"></script>
 
-<!-- JSON poems, required by shearch.js -->
-<script src="json/sonnets.js" type="text/javascript"></script>
+	<script src="js/jquery-1.4.2.js" type="text/javascript"></script>
+	<script src="js/webDatabase.js" type="text/javascript"></script>
+	<script src="js/shearch.js" type="text/javascript"></script>
 
-<script src="js/jquery-1.4.2.js" type="text/javascript"></script>
-<script src="js/webDatabase.js" type="text/javascript"></script>
-<script src="js/shearch.js" type="text/javascript"></script>
-
-
-<script type="text/javascript">
-
-function elapsedTimer() {
-    if (elapsedTimer.isStarted) {
-        console.log("Elapsed: " + (Date.now() - elapsedTimer.startTime));
-        elapsedTimer.isStarted = false;
-    } else {
-        elapsedTimer.startTime = Date.now();
-        elapsedTimer.isStarted = true;
-    }
-}
-
-// toggle display of poem or query results
-function addClickHandler(poemDiv, linesDiv, poemIndex, query) {
-	var isUnexpanded = true;
-    var expandedHTML, unexpandedHTML; // to cache 'unexpanded' query results and 'expanded' whole poem
-    poemDiv.click(function() {
-		if (isUnexpanded) { // only query result lines are displayed: show whole poem
-			unexpandedHTML = $(this).html();
-			if (expandedHTML) { // if not the first time...
-				$(this).html(expandedHTML);
-			} else {
-				linesDiv.html("");
-				var poem = poems[poemIndex];
-				poem.lines.forEach(function(line, index, lines){
-					var lineDiv = $("<div class='line' />");
-					lineDiv.append("<div class='lineText'>" + line.replace(new RegExp("(" + query + ")", "gi"), "<em>$1</em>") + "</div>");
-					var lineNumber = index + 1;
-					if (lineNumber % 5 === 0) {
-						lineDiv.append("<div class='lineNumber'>" + lineNumber + "</div>");
-					}
-					linesDiv.append(lineDiv);
-				});		
-			}
-			
-			isUnexpanded = false;
-		} else { // whole poem is shown: display only query result lines
-			expandedHTML = $(this).html();
-			$(this).html(unexpandedHTML);
-			isUnexpanded = true;
-		}
-    });
-}
-
-function displayResults(transaction, results) {
-//    elapsedTimer();
-    var resultsDiv = $("<div class='results' />");
-	var poemDiv, linesDiv;
-    for (var i = 0; i !== results.rows.length; ++i) {
-        var line = results.rows.item(i);
-		// for each poem, create divs and add the poem title, then add a click handler to toggle display of the whole poem
-		if (!displayResults.currentPoemIndex || displayResults.currentPoemIndex != line.poemIndex) {
-			displayResults.currentPoemIndex = line.poemIndex;
-			poemDiv = $("<div class='poem' />");
-			poemDiv.append("<div class='poemTitle'>" + line.poemTitle + "</div>");			
-			resultsDiv.append(poemDiv);
-			linesDiv = $("<div class='lines' />").attr("poemIndex", line.poemIndex); // attr used to get html in click handler
-			poemDiv.append(linesDiv);
-			addClickHandler(poemDiv, linesDiv, line.poemIndex, query);
-		}
-		// add line to div.lines
-        linesDiv.append("<div class='line'><div class='lineText'>" + 
-			line.lineText.replace(new RegExp("(" + query + ")", "gi"), "<em>$1</em>") + 
-			"</div><div class='lineNumber'>" + line.lineNumber + "</div></div>");        
-    }
-    $("#container").html(resultsDiv);
-//    elapsedTimer();
-}
-
-var query;
-$(document).ready(function() {
-    $("#query").focus();
-    $("#query").bind('input', function() {
-        query = $(this).val();
-        if (query.length < 3) {
-            return false;
-        }
-        console.log(query);
-        // could use caching of results for query
-        var statement = "SELECT poemIndex, poemTitle, lineNumber, lineText FROM poems WHERE lineText like '%" + query + "%'";
-        doReadQuery(statement, displayResults);
-    });
-});
-</script>
-
-<style type="text/css">
-body {
-}
-
-div.results {
-}
-
-div.poem {
-cursor: pointer;
-font-family: Georgia;
-margin: 0 0 1em 0;
-}
-
-div.poem div.poemTitle {
-font-size: 12px;
-font-weight: bold;
-height: 1.5em;
-}
-
-div.line {
-font-size: 12px;
-height: 1.5em;
-}
-
-div.poemLines {
-font-size: 12px;
-line-height: 1.5em;
-}
-
-div.lineText {
-float: left;
-font-size: 12px;
-}
-
-div.lineText em {
-font-style: normal;
-background: #ffffcc;
-}
-
-div.lineNumber {
-float: right;
-font-size: 10px;
-font-style: italic;
-width: 30px;
-}
-
-</style>
+	<link rel="stylesheet" type="text/css" href="css/shearch.css" />
 
 </head>
 
 <body>
-<input id="query" type="text" />
 
 <div id="container">
+
+	<div id="info">
+		<h1>Shakespeare Sonnet Search</h1>
+		<span class="inputLabel">Enter text to search for:</span>
+		<input id="query" type="text" autofocus="true" />
+	</div> <!-- info -->
+
+	<!-- begin results container, content generated dynamically --> 
+	<div id="resultsContainer" title="Click on a result to view the whole sonnet. Click the sonnet to close it."></div>
+	<!-- end results container, content generated dynamically --> 
+	
+
 
 </div><!-- container -->
 

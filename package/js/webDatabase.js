@@ -1,5 +1,9 @@
 // A basic set of functions for manipulating web databases
 
+function displayError(message){
+	console.log(message);
+}
+
 function transactionErrorHandler(error) {
     alert("Transaction error: " + error.message + ", code: " + error.code);
 }
@@ -12,7 +16,7 @@ function queryErrorHandler(transaction, error) {
 	if (error.message === "constraint failed") {
 		alert("Constraint failed.");
 	} else {
-	    console.log("Sorry. Something went wrong: " + error.message + ", code: " + error.code + 
+	    displayError("Sorry. Something went wrong: " + error.message + ", code: " + error.code + 
 			".\n Sam Dutton would appreciate if you could email this error to sam.dutton@gmail.com.");
 	}
 	
@@ -20,7 +24,7 @@ function queryErrorHandler(transaction, error) {
 }
 
 function showResults(transaction, results) {
-    console.log(results);
+//    console.log(results);
 	if (results.rows && results.rows.length > 0) {
 		var i, message = "", prop;
 		for (i = 0; i !== results.rows.length; ++i) {

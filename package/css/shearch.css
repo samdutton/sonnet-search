@@ -1,0 +1,134 @@
+/*
+@font-face {
+  font-family: MyHelvetica;
+  src: local("Helvetica Neue Bold"),
+  local("HelveticaNeue-Bold"),
+  url(MgOpenModernaBold.ttf);
+  font-weight: bold;
+}
+*/
+
+@font-face {
+font-family: Delicious; 
+src: url('../fonts/Delicious-Roman.otf'); 
+} 
+
+@font-face { 
+font-family: Delicious; 
+src: url('../fonts/Delicious-Bold.otf'); 
+font-weight: bold;
+}
+
+@font-face { 
+font-family: Delicious-Heavy; 
+src: url('../fonts/Delicious-Heavy.otf'); 
+}
+
+@font-face { 
+font-family: Delicious; 
+src: url('../fonts/Delicious-Italic.otf'); 
+font-style: italic;
+}
+
+@font-face {
+font-family: Droid-Sans; 
+src: url('../fonts/DroidSans.ttf'); 
+} 
+
+
+
+body {
+background: black url('../images/background.jpg') no-repeat;
+overflow: scroll;
+padding: 50px;
+}
+
+div#container {
+background: #333;
+margin: 0 auto 0 auto;
+opacity: 0.6;
+padding: 20px 30px 10px 30px;
+width: 355px;
+}
+
+div#info {
+height: 115px;
+margin: 0 0 20px 0;
+}
+
+h1 {
+border-bottom: 1px solid #aaa;
+color: #a44;
+font-family: Delicious-Heavy, sans-serif;
+font-weight: normal;
+height: 36pt;
+margin: 0 0 30px 0;
+padding: 0 0 10px 0;
+}
+
+span.inputLabel {
+color: #eee;
+float: left;
+font-size: 16px;
+font-family: Delicious, sans-serif;
+line-height: 1em;
+margin: 0 10px 0 0;
+}
+
+input#query {
+color: #e00;
+float: right;
+font-family: Delicious, sans-serif;
+font-size: 14px;
+position: relative;
+top: -3px;
+width: 182px;
+}
+
+
+
+div#resultsContainer {
+margin: 0 0 20px 0;
+}
+
+div.poem {
+cursor: pointer;
+margin: 0 0 1em 0;
+}
+
+div.poem div.poemTitle {
+border-bottom: 1px dotted #666;
+color: #666;
+font-family: Delicious, sans-serif;
+font-size: 14px;
+height: 1.2em;
+margin: 0 0 5px 0;
+padding: 0 0 0 0;
+}
+
+div.line {
+height: 16px;
+}
+
+div.poemLines {
+}
+
+div.lineText {
+color: white;
+float: left;
+font-family: Delicious, sans-serif;
+font-size: 12px;
+}
+
+div.lineText em {
+font-style: normal;
+background: #744;
+padding: 0 1px 0 1px;
+}
+
+div.lineNumber {
+color: #999;
+float: right;
+font-size: 10px;
+font-style: italic;
+}
