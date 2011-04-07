@@ -46,7 +46,7 @@ padding: 50px;
 div#container {
 background: #333;
 margin: 0 auto 0 auto;
-opacity: 0.8;
+opacity: 0.6;
 padding: 20px 30px 10px 30px;
 width: 355px;
 }
@@ -70,20 +70,19 @@ padding: 0 0 10px 0;
 span.inputLabel {
 color: #eee;
 float: left;
-font-size: 12pt;
-font-family: Delicious, sans-serif;
+font-size: 11pt;
+font-family: Trebuchet MS, sans-serif;
 line-height: 1em;
-margin: 0 10px 0 0;
 }
 
 input#query {
 color: #e00;
 float: right;
-font-family: Delicious, sans-serif;
-font-size: 12pt;
+font-family: Trebuchet MS, sans-serif;
+font-size: 11pt;
 position: relative;
-top: -5px;
-width: 182px;
+top: -7px;
+width: 175px;
 }
 
 
@@ -100,15 +99,16 @@ margin: 0 0 1em 0;
 div.poem div.poemTitle {
 border-bottom: 1px dotted #666;
 color: #666;
-font-family: Delicious, sans-serif;
+font-family: Delicious, Trebuchet MS, Arial, sans-serif;
 font-size: 12pt;
+font-weight: bold;
 height: 1.2em;
 margin: 0 0 5px 0;
 padding: 0 0 0 0;
 }
 
 div.line {
-height: 16px;
+height: 24px;
 }
 
 div.poemLines {
@@ -117,19 +117,22 @@ div.poemLines {
 div.lineText {
 color: white;
 float: left;
-font-family: Delicious, sans-serif;
+font-family: Trebuchet MS, Arial, sans-serif;
 font-size: 10pt;
 }
 
 div.lineText em {
 font-style: normal;
 background: #744;
-padding: 0 1px 0 1px;
+opacity: 1;
+padding: 0 2px 0 1px;
 }
 
 div.lineNumber {
 color: #999;
 float: right;
-font-size: 10px;
+font-family: Delicious, Trebuchet MS, Arial, sans-serif;
+font-size: 8pt;
 font-style: italic;
+padding: 3px 0 0 0;
 }

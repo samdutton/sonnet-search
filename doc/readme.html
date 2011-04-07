@@ -9,13 +9,34 @@
 <title>Shakespeare Sonnet Search</title>
 
 <style type="text/css">
+@font-face {
+font-family: Delicious; 
+src: url('../fonts/Delicious-Roman.otf'); 
+} 
+
+@font-face { 
+font-family: Delicious; 
+src: url('../fonts/Delicious-Bold.otf'); 
+font-weight: bold;
+}
+
+@font-face { 
+font-family: Delicious-Heavy; 
+src: url('../fonts/Delicious-Heavy.otf'); 
+}
+
+@font-face { 
+font-family: Delicious; 
+src: url('../fonts/Delicious-Italic.otf'); 
+font-style: italic;
+}
+
 a {
-color: #6699ff;
+color: #a44;
 text-decoration: none;
 }
 
 a:hover {
-color: #99aaff;
 text-decoration: underline;
 }
 
@@ -33,26 +54,21 @@ padding: 20px 30px 30px 30px;
 width: 600px;
 }
 
-* html div#container {
-width: 540px;
-}
-
 h1 {
 border-bottom: 1px solid #aaa;
-color: white;
-font-family: Arial, sans-serif;
+color: #a44;
+font-family: Delicious-Heavy, sans-serif;
+font-size: 24pt;
+font-weight: normal;
+height: 50px;
 margin: 0 0 30px 0;
 padding: 0 0 10px 0;
 }
 
 h2 {
-color: white;
-font-family: Arial, sans-serif;
+color: #a44;
+font-family: Delicious-Heavy, sans-serif;
 margin: 30px 0 0 0;
-}
-
-img {
-border: none;
 }
 
 p {
@@ -64,19 +80,6 @@ line-height: 1.5em;
 p.borderBottom {
 border-bottom: 1px dotted #666;
 padding: 0 0 30px 0;
-}
-
-ul {
-color: #eee;
-font-size: 14px;
-line-height: 1.5em;
-margin: 20px;
-padding: 0;
-}
-
-li {
-list-style: square;
-margin: 0 0 5px 0;
 }
 
 </style>
