@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+<title>Shakespeare Sonnet Search</title>
+
+<style type="text/css">
+@font-face {
+font-family: Delicious; 
+src: url('fonts/Delicious-Roman.otf'); 
+} 
+
+@font-face { 
+font-family: Delicious; 
+src: url('fonts/Delicious-Bold.otf'); 
+font-weight: bold;
+}
+
+@font-face { 
+font-family: Delicious-Heavy; 
+src: url('fonts/Delicious-Heavy.otf'); 
+}
+
+@font-face { 
+font-family: Delicious; 
+src: url('fonts/Delicious-Italic.otf'); 
+font-style: italic;
+}
+
+a {
+color: #f44;
+text-decoration: none;
+}
+
+a:hover {
+color: #f00;
+text-decoration: underline;
+}
+
+body {
+background: black url('images/background.jpg') no-repeat;
+margin: 0;
+padding: 50px;
+}
+
+div#container {
+background: #333;
+margin: 0 auto 0 auto;
+opacity: 0.6;
+padding: 20px 30px 30px 30px;
+width: 355px;
+}
+
+h1 {
+border-bottom: 1px solid #aaa;
+color: #a44;
+font-family: Delicious-Heavy, sans-serif;
+font-size: 24pt;
+font-weight: normal;
+height: 50px;
+margin: 0 0 25px 0;
+padding: 0 0 10px 0;
+}
+
+h2 {
+border-bottom: 1px dotted #a44;
+color: #a44;
+font-family: Delicious-Heavy, sans-serif;
+margin: 30px 0 0 0;
+}
+
+p {
+color: #eee;
+font-family: Trebuchet MS, Arial, sans-serif;
+font-size: 10pt;
+line-height: 1.5em;
+}
+
+p#lead {
+font-size: 12pt;
+font-family: Trebuchet MS, sans-serif;
+}
+
+p.borderBottom {
+border-bottom: 1px dotted #666;
+padding: 0 0 30px 0;
+}
+
+</style>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+});
+</script>
+
+<script type="text/javascript">
+
+</script>
+
+</head>
+
+<body>
+
+<div id="container">
+
+<h1>Shakespeare Sonnet Search</h1>
+
+<p id="lead">Instant search for William Shakespeare's sonnets.</p>
+
+
+<h2>How to use it</h2> 
+
+<p>Enter text in the input box at the top of the page to display lines from sonnets containing the text.</p>
+
+<p>Search is not case sensitive. Note that a minimum of two characters must be entered. Line numbers are shown to the right of each line.</p>
+
+<p>Click any line to display the whole sonnet from which it is taken.</p>
+
+<p>Click on a sonnet to close it.</p>
+
+
+<h2 id="howDoesItWork">How does it work?</h2> 
+
+<p>The sonnets are stored in JSON format in json/sonnets.js.</p>
+
+<p>The first time the app is first opened, the JSON is parsed and the sonnets are stored locally in a Web SQL database.</p>
+
+<p>Whenever query text is entered or altered, the database is queried and any results are formatted and displayed.</p>
+
+
+<h2 id="feedback">Feedback</h2>
+
+<p>Please send bug reports, comments or feature requests to <a href="mailto:samdutton@gmail.com">samdutton@gmail.com</a>.</p>
+
+<p>For more information, please visit my website <a href="mailto:samdutton@gmail.com">samdutton.com</a> or my blog at <a href="http://samdutton.wordpress.com">samdutton.wordpress.com</a>.</p>
+
+
+
+</div><!-- container -->
+
+</body>
+
+</html>

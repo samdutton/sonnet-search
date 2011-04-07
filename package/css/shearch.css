@@ -39,13 +39,14 @@ src: url('../fonts/DroidSans.ttf');
 
 body {
 background: black url('../images/background.jpg') no-repeat;
+margin: 0;
 overflow: scroll;
 padding: 50px;
 }
 
 div#container {
 background: #333;
-margin: 0 auto 0 auto;
+margin: 0 auto 50px auto;
 opacity: 0.6;
 padding: 20px 30px 10px 30px;
 width: 355px;
@@ -60,8 +61,9 @@ h1 {
 border-bottom: 1px solid #aaa;
 color: #a44;
 font-family: Delicious-Heavy, sans-serif;
+font-size: 24pt;
 font-weight: normal;
-height: 36pt;
+height: 50px;
 margin: 0 0 30px 0;
 padding: 0 0 10px 0;
 }
@@ -69,20 +71,19 @@ padding: 0 0 10px 0;
 span.inputLabel {
 color: #eee;
 float: left;
-font-size: 16px;
-font-family: Delicious, sans-serif;
+font-size: 11pt;
+font-family: Trebuchet MS, sans-serif;
 line-height: 1em;
-margin: 0 10px 0 0;
 }
 
 input#query {
 color: #e00;
 float: right;
-font-family: Delicious, sans-serif;
-font-size: 14px;
+font-family: Trebuchet MS, sans-serif;
+font-size: 11pt;
 position: relative;
-top: -3px;
-width: 182px;
+top: -7px;
+width: 175px;
 }
 
 
@@ -99,15 +100,16 @@ margin: 0 0 1em 0;
 div.poem div.poemTitle {
 border-bottom: 1px dotted #666;
 color: #666;
-font-family: Delicious, sans-serif;
-font-size: 14px;
+font-family: Delicious, Trebuchet MS, Arial, sans-serif;
+font-size: 12pt;
+font-weight: bold;
 height: 1.2em;
 margin: 0 0 5px 0;
 padding: 0 0 0 0;
 }
 
 div.line {
-height: 16px;
+height: 24px;
 }
 
 div.poemLines {
@@ -116,19 +118,52 @@ div.poemLines {
 div.lineText {
 color: white;
 float: left;
-font-family: Delicious, sans-serif;
-font-size: 12px;
+font-family: Trebuchet MS, Arial, sans-serif;
+font-size: 10pt;
 }
 
 div.lineText em {
 font-style: normal;
 background: #744;
-padding: 0 1px 0 1px;
+opacity: 1;
+padding: 0 2px 0 1px;
 }
 
 div.lineNumber {
 color: #999;
 float: right;
-font-size: 10px;
+font-family: Delicious, Trebuchet MS, Arial, sans-serif;
+font-size: 8pt;
 font-style: italic;
+padding: 3px 0 0 0;
+}
+
+
+div#footer {
+background: #333;
+color: #999;
+font-family: Trebuchet MS, Arial, sans-serif;
+font-size: 10pt;
+margin: 0 auto 0 auto;
+opacity: 0.5;
+padding: 10px 30px 10px 30px;
+width: 355px;
+}
+
+div#footer div#copyright {
+border-bottom: 1px dotted #888;
+color: #777;
+margin: 0 0 5px 0;
+padding: 0 0 5px 0;
+}
+
+div#footer a {
+color: #999;
+font-family: Trebuchet MS, Arial, sans-serif;
+text-decoration: none;
+}
+
+div#footer a:hover {
+color: #fff;
+text-decoration: underline;
 }

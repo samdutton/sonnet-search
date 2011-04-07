@@ -11,39 +11,40 @@
 <style type="text/css">
 @font-face {
 font-family: Delicious; 
-src: url('../fonts/Delicious-Roman.otf'); 
+src: url('fonts/Delicious-Roman.otf'); 
 } 
 
 @font-face { 
 font-family: Delicious; 
-src: url('../fonts/Delicious-Bold.otf'); 
+src: url('fonts/Delicious-Bold.otf'); 
 font-weight: bold;
 }
 
 @font-face { 
 font-family: Delicious-Heavy; 
-src: url('../fonts/Delicious-Heavy.otf'); 
+src: url('fonts/Delicious-Heavy.otf'); 
 }
 
 @font-face { 
 font-family: Delicious; 
-src: url('../fonts/Delicious-Italic.otf'); 
+src: url('fonts/Delicious-Italic.otf'); 
 font-style: italic;
 }
 
 a {
-color: #a44;
+color: #f44;
 text-decoration: none;
 }
 
 a:hover {
+color: #f00;
 text-decoration: underline;
 }
 
 body {
-background: black url('../images/background.jpg') no-repeat;
-font-family: Arial, sans-serif;
-padding: 50px;
+background: black url('images/background.jpg') no-repeat;
+margin: 0;
+padding: 50px 50px 50px 50px;
 }
 
 div#container {
@@ -51,21 +52,21 @@ background: #333;
 margin: 0 auto 0 auto;
 opacity: 0.6;
 padding: 20px 30px 30px 30px;
-width: 600px;
+width: 355px;
 }
 
 h1 {
-border-bottom: 1px solid #aaa;
+border-bottom: 1px solid #a44;
 color: #a44;
 font-family: Delicious-Heavy, sans-serif;
 font-size: 24pt;
 font-weight: normal;
-height: 50px;
-margin: 0 0 30px 0;
-padding: 0 0 10px 0;
+margin: 0 0 40px 0;
+padding: 0 0 2px 0;
 }
 
 h2 {
+border-bottom: 1px dotted #a44;
 color: #a44;
 font-family: Delicious-Heavy, sans-serif;
 margin: 30px 0 0 0;
@@ -73,6 +74,7 @@ margin: 30px 0 0 0;
 
 p {
 color: #eee;
+font-family: Trebuchet MS, Arial, sans-serif;
 font-size: 14px;
 line-height: 1.5em;
 }
@@ -118,7 +120,7 @@ $(document).ready(function() {
 <p>Click on a sonnet to close it.</p>
 
 
-<h2>How does it work?</h2> 
+<h2 id="howDoesItWork">How does it work?</h2> 
 
 <p>The sonnets are stored in JSON format in json/sonnets.js.</p>
 

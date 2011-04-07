@@ -116,7 +116,7 @@ $(document).ready(function() {
 //    $("#query").focus(); // done with input autofocus attribute
     $("#query").bind('input', function() {
         query = $(this).val();
-        if (query.length < 3) {
+        if (query.length < 2) {
 			$("#resultsContainer").empty();			
             return false;
         }

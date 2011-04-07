@@ -4,13 +4,8 @@
 	"version": "1.1",
 	"app": {
 		"launch": {
-			"local_path": "index.html",
-			"web_url": "http://www.samdutton.com/shearch/"
-		},
-		"urls": [
-		  "*://samdutton.com/shearch/",
-		  "*://www.samdutton.com/shearch/"
-		]
+			"local_path": "index.html"
+		}
   },
 	"icons": {
 	"16": "images/icon16.png",

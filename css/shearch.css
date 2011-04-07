@@ -39,13 +39,14 @@ src: url('../fonts/DroidSans.ttf');
 
 body {
 background: black url('../images/background.jpg') no-repeat;
+margin: 0;
 overflow: scroll;
 padding: 50px;
 }
 
 div#container {
 background: #333;
-margin: 0 auto 0 auto;
+margin: 0 auto 50px auto;
 opacity: 0.6;
 padding: 20px 30px 10px 30px;
 width: 355px;
@@ -135,4 +136,34 @@ font-family: Delicious, Trebuchet MS, Arial, sans-serif;
 font-size: 8pt;
 font-style: italic;
 padding: 3px 0 0 0;
+}
+
+
+div#footer {
+background: #333;
+color: #999;
+font-family: Trebuchet MS, Arial, sans-serif;
+font-size: 10pt;
+margin: 0 auto 0 auto;
+opacity: 0.5;
+padding: 10px 30px 10px 30px;
+width: 355px;
+}
+
+div#footer div#copyright {
+border-bottom: 1px dotted #888;
+color: #777;
+margin: 0 0 5px 0;
+padding: 0 0 5px 0;
+}
+
+div#footer a {
+color: #999;
+font-family: Trebuchet MS, Arial, sans-serif;
+text-decoration: none;
+}
+
+div#footer a:hover {
+color: #fff;
+text-decoration: underline;
 }
