@@ -25,7 +25,8 @@ function insertPoems() {
 
 function insertPoemsTest() {
     db.transaction(function(tx){
-        for (var i = 0; i != 20000; ++i) {
+		var i;
+        for (i = 0; i !== 20000; ++i) {
             tx.executeSql('INSERT INTO poems (poemIndex, poemTitle, lineNumber, lineText) VALUES (?, ?, ?, ?)',
                 [i, "Sonnet 154", (i % 14), "Shall I compare thee to a summer day?"]);
         }
@@ -53,7 +54,8 @@ function addClickHandler(poemDiv, linesDiv, poemIndex, query) {
 	var isUnexpanded = true;
     var expandedHTML, unexpandedHTML; // to cache 'unexpanded' query results and 'expanded' whole poem
     poemDiv.click(function() {
-		if (isUnexpanded) { // only query result lines are displayed: show whole poem
+		if (isUnexpanded) { // if only query results are shown, display whole poem
+			poemDiv.attr("title", "Click to display a facsimile of the sonnet");
 			unexpandedHTML = $(this).html();
 			if (expandedHTML) { // if not the first time...
 				$(this).html(expandedHTML);
@@ -62,7 +64,8 @@ function addClickHandler(poemDiv, linesDiv, poemIndex, query) {
 				var poem = poems[poemIndex];
 				poem.lines.forEach(function(line, index, lines){
 					var lineDiv = $("<div class='line' />");
-					lineDiv.append("<div class='lineText'>" + line.replace(new RegExp("(" + query + ")", "gi"), "<em>$1</em>") + "</div>");
+					lineDiv.append("<div class='lineText'>" + 
+						line.replace(new RegExp("(" + query + ")", "gi"), "<em>$1</em>") + "</div>");
 					var lineNumber = index + 1;
 					if (lineNumber % 5 === 0) {
 						lineDiv.append("<div class='lineNumber'>" + lineNumber + "</div>");
@@ -73,11 +76,20 @@ function addClickHandler(poemDiv, linesDiv, poemIndex, query) {
 			
 			isUnexpanded = false;
 		} else { // whole poem is shown: display only query result lines
-			expandedHTML = $(this).html();
-			$(this).html(unexpandedHTML);
-			isUnexpanded = true;
+			var sonnetNumber = parseInt(poemIndex, 10) + 1;
+			window.open("http://internetshakespeare.uvic.ca/Library/facsimile/bookplay/UC_Q1_Son/Son/" +
+				sonnetNumber + "/?zoom=5");
+//			expandedHTML = $(this).html();
+//			$(this).html(unexpandedHTML);
+//			isUnexpanded = true;
 		}
     });
+}
+
+function addDoubleClickHandler(poemDiv, sonnetNumber){
+    poemDiv.dblclick(function(){
+		window.open("http://internetshakespeare.uvic.ca/Library/facsimile/bookplay/UC_Q1_Son/Son/" + sonnetNumber + "/?zoom=5");
+	});
 }
 
 function displayResults(transaction, results) {
@@ -87,14 +99,15 @@ function displayResults(transaction, results) {
 	}
     var resultsDiv = $("<div class='results' />"); //
 	var currentPoemIndex, poemDiv, linesDiv;
-    for (var i = 0; i !== results.rows.length; ++i) {
+	var i;
+    for (i = 0; i !== results.rows.length; ++i) {
         var line = results.rows.item(i);
 		// for each new poem (i.e. new currentPoemIndex)
 		// create divs and add the poem title, 
 		// then add a click handler to toggle display of the whole poem
-		if (!currentPoemIndex || currentPoemIndex != line.poemIndex) {
+		if (!currentPoemIndex || currentPoemIndex !== line.poemIndex) {
 			currentPoemIndex = line.poemIndex;
-			poemDiv = $("<div class='poem' />");
+			poemDiv = $("<div class='poem' title='Click to display the whole sonnet' />");
 			poemDiv.append("<div class='poemTitle'>" + line.poemTitle + "</div>");			
 			resultsDiv.append(poemDiv);
 			linesDiv = $("<div class='lines' />").attr("poemIndex", line.poemIndex); // attr used to get html in click handler
