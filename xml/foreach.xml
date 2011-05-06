@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="foreach.xsl" ?>
+<customers>
+   <customer>
+      <name>John Smith</name>
+      <address>123 Oak St.</address>
+      <state>WA</state>
+      <phone>(206) 123-4567</phone>
+   </customer>
+   <customer>
+      <name>Zack Zwyker</name>
+      <address>368 Elm St.</address>
+      <state>WA</state>
+      <phone>(206) 423-4537</phone>
+   </customer>
+   <customer>
+      <name>Albert Aikens</name>
+      <address>368 Elm St.</address>
+      <state>WA</state>
+      <phone>(206) 423-4537</phone>
+   </customer>
+   <customer>
+      <name>Albert Gandy</name>
+      <address>6984 4th St.</address>
+      <state>WA</state>
+      <phone>(206) 433-4547</phone>
+   </customer>
+   <customer>
+      <name>Peter Furst</name>
+      <address>456 Pine Av.</address>
+      <state>CA</state>
+      <phone>(209) 765-4321</phone>
+   </customer>
+   <customer>
+      <name>Dan Russell</name>
+      <address>9876 Main St.</address>
+      <state>PA</state>
+      <phone>(323) 321-7654</phone>
+   </customer>
+</customers>
