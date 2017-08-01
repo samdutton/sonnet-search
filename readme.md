@@ -2,6 +2,8 @@
 
 Instant search for William Shakespeare's sonnets.
 
+Try it out at [samdutton.github.io/sonnet-search](https://samdutton.github.io/sonnet-search).
+
 ## How to use it
 
 As you enter text in the input box at the top of the page, sonnets containing the text will immediately be displayed.
