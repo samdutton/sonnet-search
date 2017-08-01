@@ -1,39 +1,29 @@
-/*
 @font-face {
-  font-family: MyHelvetica;
-  src: local("Helvetica Neue Bold"),
-  local("HelveticaNeue-Bold"),
-  url(MgOpenModernaBold.ttf);
-  font-weight: bold;
+font-family: Delicious;
+src: url('../fonts/Delicious-Roman.otf');
 }
-*/
 
 @font-face {
-font-family: Delicious; 
-src: url('../fonts/Delicious-Roman.otf'); 
-} 
-
-@font-face { 
-font-family: Delicious; 
-src: url('../fonts/Delicious-Bold.otf'); 
+font-family: Delicious;
+src: url('../fonts/Delicious-Bold.otf');
 font-weight: bold;
 }
 
-@font-face { 
-font-family: Delicious-Heavy; 
-src: url('../fonts/Delicious-Heavy.otf'); 
+@font-face {
+font-family: Delicious-Heavy;
+src: url('../fonts/Delicious-Heavy.otf');
 }
 
-@font-face { 
-font-family: Delicious; 
-src: url('../fonts/Delicious-Italic.otf'); 
+@font-face {
+font-family: Delicious;
+src: url('../fonts/Delicious-Italic.otf');
 font-style: italic;
 }
 
 @font-face {
-font-family: Droid-Sans; 
-src: url('../fonts/DroidSans.ttf'); 
-} 
+font-family: Droid-Sans;
+src: url('../fonts/DroidSans.ttf');
+}
 
 
 
@@ -71,8 +61,8 @@ padding: 0 0 10px 0;
 span.inputLabel {
 color: #eee;
 float: left;
-font-size: 11pt;
 font-family: Trebuchet MS, sans-serif;
+font-size: 11pt;
 line-height: 1em;
 }
 
@@ -112,9 +102,6 @@ div.line {
 height: 24px;
 }
 
-div.poemLines {
-}
-
 div.lineText {
 color: white;
 float: left;
@@ -123,8 +110,8 @@ font-size: 10pt;
 }
 
 div.lineText em {
-font-style: normal;
 background: #744;
+font-style: normal;
 opacity: 1;
 padding: 0 2px 0 1px;
 }
