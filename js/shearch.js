@@ -116,7 +116,7 @@ function displayResults(transaction, results) {
 		}
 		// add line to div.lines
 		linesDiv.append("<div class='line'><div class='lineText'>" +
-			line.lineText.replace(new RegExp("(" + query + ")", "gi"), "<em>$1</em>") +
+			line.lineText.replace(new RegExp("(" + query + ")", "gi"), "<mark>$1</mark>") +
 			"</div><div class='lineNumber'>" + line.lineNumber + "</div></div>");
     }
 //	$("body").css("background-image", "url('images/background.jpg')");
