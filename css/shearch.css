@@ -109,12 +109,12 @@ font-family: Trebuchet MS, Arial, sans-serif;
 font-size: 10pt;
 }
 
-div.lineText mark {
+/*div.lineText em {
 background: #744;
 font-style: normal;
 opacity: 1;
 padding: 0 2px 0 1px;
-}
+}*/
 
 div.lineNumber {
 color: #999;
