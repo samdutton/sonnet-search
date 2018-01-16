@@ -115,8 +115,7 @@ function displayResults(transaction, results) {
 			addClickHandler(poemDiv, linesDiv, line.poemIndex, query);
 		}
 		// add line to div.lines
-		linesDiv.append("<div class='line'><div class='lineText'>" +
-			line.lineText.replace(new RegExp("(" + query + ")", "gi"), "<mark>$1</mark>") +
+		linesDiv.append("<div class='line'><div class='lineText'>" + line.lineText +
 			"</div><div class='lineNumber'>" + line.lineNumber + "</div></div>");
     }
 //	$("body").css("background-image", "url('images/background.jpg')");
