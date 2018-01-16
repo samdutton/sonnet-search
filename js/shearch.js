@@ -4,8 +4,8 @@ var db = openDatabase('poems', '1.0', 'Poems', 2 * 1024 * 1024); // short name, 
 // if transaction is successful insert poems into table
 db.transaction(function (tx) {
     tx.executeSql('DROP TABLE IF EXISTS poems');
-    tx.executeSql('CREATE TABLE IF NOT EXISTS poems (poemIndex varchar(6), poemTitle varchar(255), lineNumber varchar(2), lineText varchar(255))',  
-		[], null, queryErrorHandler); 
+    tx.executeSql('CREATE TABLE IF NOT EXISTS poems (poemIndex varchar(6), poemTitle varchar(255), lineNumber varchar(2), lineText varchar(255))',
+		[], null, queryErrorHandler);
 }, transactionErrorHandler, insertPoems);
 
 // poems object is defined in poems.json
@@ -64,16 +64,16 @@ function addClickHandler(poemDiv, linesDiv, poemIndex, query) {
 				var poem = poems[poemIndex];
 				poem.lines.forEach(function(line, index, lines){
 					var lineDiv = $("<div class='line' />");
-					lineDiv.append("<div class='lineText'>" + 
-						line.replace(new RegExp("(" + query + ")", "gi"), "<em>$1</em>") + "</div>");
+					lineDiv.append("<div class='lineText'>" +
+						line.replace(new RegExp("(" + query + ")", "gi"), "<mark>$1</mark>") + "</div>");
 					var lineNumber = index + 1;
 					if (lineNumber % 5 === 0) {
 						lineDiv.append("<div class='lineNumber'>" + lineNumber + "</div>");
 					}
 					linesDiv.append(lineDiv);
-				});		
+				});
 			}
-			
+
 			isUnexpanded = false;
 		} else { // whole poem is shown: display only query result lines
 			var sonnetNumber = parseInt(poemIndex, 10) + 1;
@@ -103,21 +103,21 @@ function displayResults(transaction, results) {
     for (i = 0; i !== results.rows.length; ++i) {
         var line = results.rows.item(i);
 		// for each new poem (i.e. new currentPoemIndex)
-		// create divs and add the poem title, 
+		// create divs and add the poem title,
 		// then add a click handler to toggle display of the whole poem
 		if (!currentPoemIndex || currentPoemIndex !== line.poemIndex) {
 			currentPoemIndex = line.poemIndex;
 			poemDiv = $("<div class='poem' title='Click to display the whole sonnet' />");
-			poemDiv.append("<div class='poemTitle'>" + line.poemTitle + "</div>");			
+			poemDiv.append("<div class='poemTitle'>" + line.poemTitle + "</div>");
 			resultsDiv.append(poemDiv);
 			linesDiv = $("<div class='lines' />").attr("poemIndex", line.poemIndex); // attr used to get html in click handler
 			poemDiv.append(linesDiv);
-			addClickHandler(poemDiv, linesDiv, line.poemIndex, query); 
+			addClickHandler(poemDiv, linesDiv, line.poemIndex, query);
 		}
 		// add line to div.lines
-		linesDiv.append("<div class='line'><div class='lineText'>" + 
-			line.lineText.replace(new RegExp("(" + query + ")", "gi"), "<em>$1</em>") + 
-			"</div><div class='lineNumber'>" + line.lineNumber + "</div></div>");       
+		linesDiv.append("<div class='line'><div class='lineText'>" +
+			line.lineText.replace(new RegExp("(" + query + ")", "gi"), "<em>$1</em>") +
+			"</div><div class='lineNumber'>" + line.lineNumber + "</div></div>");
     }
 //	$("body").css("background-image", "url('images/background.jpg')");
     $("#resultsContainer").html(resultsDiv);
@@ -130,12 +130,12 @@ $(document).ready(function() {
     $("#query").bind('input', function() {
         query = $(this).val();
         if (query.length < 2) {
-			$("#resultsContainer").empty();			
+			$("#resultsContainer").empty();
             return false;
         }
 		// console.log(query);
         // could use caching of results for query -- and does not cope with pathological input, such as double quotes
-        var statement = 'SELECT poemIndex, poemTitle, lineNumber, lineText FROM poems WHERE lineText like "%' + query + '%"'; 
+        var statement = 'SELECT poemIndex, poemTitle, lineNumber, lineText FROM poems WHERE lineText like "%' + query + '%"';
         doReadQuery(statement, displayResults);
     });
 });

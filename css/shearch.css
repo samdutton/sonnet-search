@@ -109,7 +109,7 @@ font-family: Trebuchet MS, Arial, sans-serif;
 font-size: 10pt;
 }
 
-div.lineText em {
+div.lineText mark {
 background: #744;
 font-style: normal;
 opacity: 1;
